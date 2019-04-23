@@ -4,6 +4,9 @@ MAINTAINER Jimmy Huang <jimmy@netivism.com.tw>
 ### locales
 ENV LANG zh_TW.UTF-8
 ENV LC_CTYPE zh_TW.UTF-8
+RUN \
+  sed -e 's|^deb|#deb|g' -i /etc/apt/sources.list && \
+  echo "deb http://archive.debian.org/debian wheezy main" >> /etc/apt/sources.list
 
 RUN \
   apt-get update && \
